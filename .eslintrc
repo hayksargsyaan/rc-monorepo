@@ -1,0 +1,149 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:no-unsanitized/DOM"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "WindowEventMap": "readonly",
+    "RequestInit": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react-hooks",
+    "react",
+    "@typescript-eslint",
+    "babel",
+    "eslint-plugin-import-helpers"
+  ],
+  "rules": {
+    // eslint
+    "camelcase": 0,
+    "max-len": [
+      2,
+      200,
+      4
+    ],
+    "arrow-parens": [
+      2,
+      "as-needed"
+    ],
+    "consistent-return": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "no-shadow": 0,
+    "no-bitwise": 0,
+    "no-plusplus": 0,
+    "no-implied-eval": 2,
+    "no-restricted-syntax": 0,
+    "no-case-declarations": 0,
+    "max-nested-callbacks": [
+      "error",
+      3
+    ],
+    "newline-per-chained-call": [
+      "error",
+      {
+        "ignoreChainWithDepth": 2
+      }
+    ],
+    "no-mixed-operators": 0,
+    "no-use-before-define": 0,
+    "no-prototype-builtins": 0,
+    "no-restricted-properties": 0,
+    "no-return-assign": 0,
+    "no-nested-ternary": 0,
+    "no-unused-expressions": 0,
+    "no-unused-vars": 0,
+    "max-depth": [
+      "error",
+      2
+    ],
+    "no-return-await": 2,
+    "import/no-extraneous-dependencies": [
+      0,
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "import/no-webpack-loader-syntax": 0,
+    // babel plugin
+    "babel/no-unused-expressions": 0,
+    // react plugin
+    "react/button-has-type": 0,
+    "react/prop-types": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/require-default-props": 1,
+    "react/jsx-first-prop-new-line": [
+      2,
+      "multiline"
+    ],
+    "react/function-component-definition": [1,
+      {
+        "namedComponents": "function-declaration"
+      }
+    ],
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 2,
+    "react/destructuring-assignment": 0,
+    // jsx-a11y
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/control-has-associated-label": 0,
+    "jsx-a11y/alt-text": 0,
+    "jsx-a11y/media-has-caption": 0,
+    "jsx-a11y/mouse-events-have-key-events": 0,
+    // typescript-eslint
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/no-unused-vars": 2,
+    // eslint-import-helpers
+    "import-helpers/order-imports": [
+      "error",
+      {
+        "groups": [
+          [
+            "module",
+            "absolute"
+          ],
+          "/^(assets|components|atoms|molecules|organisms|editor|configs|containers|data|hooks|styles|models|services|utils|storyUtils|!raw-loader!)/",
+          "parent",
+          "sibling"
+        ],
+        "newlinesBetween": "always"
+      }
+    ]
+  }
+}

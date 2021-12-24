@@ -1,0 +1,18 @@
+# Ide
+.idea/
+.history/
+.vscode/
+.DS_Store
+
+# build
+dist/
+storybook-static/
+
+# dependencies
+node_modules/
+
+# reporting files
+report.*
+
+#test coverage
+coverage/

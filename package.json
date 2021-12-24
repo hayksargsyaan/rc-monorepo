@@ -1,0 +1,89 @@
+{
+  "name": "@rc-monorepo/root",
+  "version": "1.0.0",
+  "description": "Picsart's RC Lib",
+  "author": "Hayk Sargsyan",
+  "license": "ISC",
+  "scripts": {
+    "lint": "npm run lint:ts",
+    "lint:ts": "eslint -c .eslintrc ./packages/ --quiet --ext .ts",
+    "lint:ts:fix": "eslint -c .eslintrc ./packages/ --quiet --ext .ts --fix",
+    "dev": "webpack --mode development",
+    "build": "npm run lerna:build",
+    "start": "webpack serve --mode development --open",
+    "lerna-commit": "lerna version --conventional-commits --yes",
+    "lerna:bootstrap": "lerna bootstrap --hoist",
+    "lerna:list": "lerna ls",
+    "lerna:list:changed": "lerna list --since",
+    "lerna:build": "lerna run build && node scripts/copyPckgJson.js",
+    "lerna:build:changed": "lerna run build --since",
+    "lerna:test": "lerna run test",
+    "lerna:test:changed": "lerna run test --since",
+    "lerna:clean": "npm run lerna:clean:artifacts && npm run lerna:clean:packages && npm run lerna:clean:root",
+    "lerna:clean:artifacts": "lerna run clean --parallel",
+    "lerna:clean:packages": "lerna clean --yes",
+    "lerna:clean:root": "rm -rf node_modules && rm -rf dist",
+    "postinstall": "npm run lerna:bootstrap",
+    "create:component": "lerna create $npm_config_name $npm_config_path && node scripts/createComponent.js",
+    "lerna:commit": "lerna version --conventional-commits --yes"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/jest": "^27.0.3",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "babel-loader": "^8.2.3",
+    "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-import-helpers": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-no-unsanitized": "^4.0.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0",
+    "react-jss": "^10.9.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "workspaces": [
+    "packages/*",
+    "packages/atoms/*",
+    "packages/molecules/*"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  }
+}

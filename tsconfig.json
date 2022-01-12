@@ -14,7 +14,12 @@
     "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "atoms": ["./packages/atoms"],
+      "molecules": ["./packages/molecules"],
+      "organisms": ["./packages/organisms"],
+    }
   },
   "include": ["packages/**/*"],
   "exclude": [

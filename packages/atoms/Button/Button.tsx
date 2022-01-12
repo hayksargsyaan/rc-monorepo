@@ -1,9 +1,11 @@
 import React from 'react';
 
-function Button() {
+import { IButtonProps } from './types';
+
+function Button({ text }: IButtonProps) {
   const content = 'This is Button component';
   return (
-    <p>{content}</p>
+    <p>{text || content}</p>
   );
 }
 
